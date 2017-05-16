@@ -1,0 +1,38 @@
+{% extends "index.html" %}
+
+{% block title %}
+    {{ user }}
+{% endblock %}
+
+{% block styles %}
+    {{ super() }}
+{% endblock %}
+
+{% block info %}
+    <div class="alert alert-info" role="alert">
+        <form class="form form-horizontal" method="post">
+            {{ uform.hidden_tag() }}
+            {{ uform.currencys }}
+            {{ uform.online }}
+            Search :{{ uform.curr_name }}
+            {{ uform.get_history }}
+            You API_KEY: {{ api }}
+        </form>
+    </div>
+
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <ul class=flashes>
+                {% for message in messages %}
+                    <div class="alert alert-danger" role="alert" align="center">
+                        <h5>{{ message }}</h5>
+                    </div>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    {% endwith %}
+
+    {% block table %}
+    {% endblock %}
+
+{% endblock %}

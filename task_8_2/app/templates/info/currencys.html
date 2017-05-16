@@ -1,0 +1,22 @@
+{% extends "info.html" %}
+
+{% block table %}
+    {% if data %}
+        <table class="table table-inverse">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Symbol</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for el in data %}
+            <tr>
+                <td>{{ el[0] }}</td>
+                <td>{{ el[1] }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+        </table>
+    {% endif %}
+{% endblock %}

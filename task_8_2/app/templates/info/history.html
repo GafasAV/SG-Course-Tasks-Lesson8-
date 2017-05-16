@@ -1,0 +1,37 @@
+{% extends "info.html" %}
+
+{% block table %}
+    {% if data %}
+        <h3>History for: {{ currency }}</h3>
+        <table class="table table-inverse">
+        <thead>
+            <tr>
+                <th>Market Cap</th>
+                <th>Price</th>
+                <th>Circulating Supply</th>
+                <th>Volume(24h)</th>
+                <th>%(1h)</th>
+                <th>%(24h)</th>
+                <th>%(7d)</th>
+                <th>Date Changed</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for el in data %}
+            <tr>
+                <td>{{ el[0] }}</td>
+                <td>{{ el[1] }}</td>
+                <td>{{ el[2] }}</td>
+                <td>{{ el[3] }}</td>
+                <td>{{ el[4] }}</td>
+                <td>{{ el[5] }}</td>
+                <td>{{ el[6] }}</td>
+                <td>{{ el[7] }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+        </table>
+    {% else %}
+        <h3>No History for: {{ currency }}</h3>
+    {% endif %}
+{% endblock %}
